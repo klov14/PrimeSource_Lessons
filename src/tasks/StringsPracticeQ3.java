@@ -5,10 +5,14 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class StringsPracticeQ3 {
+    //contains(), indexOf(), charAt(),
     public static void main(String[] args) {
-        ex26_2();
-
+//        System.out.println(ex6("almaty",'z'));
+//        ex13("Zinedine Zidane");
+//        System.out.println(ex14("macbool", "book"));
+ex18("Java programming language part");
     }
+
 
     public static void ex1() {
         Scanner scanner = new Scanner(System.in);
@@ -20,6 +24,108 @@ public class StringsPracticeQ3 {
         }
         System.out.println(count);
     }
+
+
+    public static void ex2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Type your word:");
+        String word = scanner.nextLine();
+        System.out.println(word.charAt(0));
+    }
+
+    public static void ex3(String input) {
+        if (input.equals("BITLAB")) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+
+
+    public static void ex4(String input) {
+        if (input.equalsIgnoreCase("java")) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+
+    public static void ex5(String input1, String input2) {
+        if (input1.equalsIgnoreCase(input2)) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+
+
+    public static String ex6(String input1, char letter) {
+        int i = 0;
+        while (i < input1.length()) {
+            if (input1.charAt(i) == letter) {
+                return "Yes";
+            }
+            i++;
+        }
+        return "NO";
+    }
+
+
+    public static void ex7(String input) {
+        if (input.charAt(0) == ' ' && input.charAt(input.length() - 1) == ' ') {
+            System.out.println("Yes");
+        } else {
+            System.out.println("NO");
+        }
+    }
+
+
+    public static void ex9(String input) {
+        ArrayList<String> separate = new ArrayList<>();
+        for (int i = 0; i < input.length(); i++) {
+            System.out.println((input.charAt(i)));
+        }
+    }
+
+    public static void ex10(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            System.out.print((input.charAt(i)));
+            System.out.print((input.charAt(i)));
+        }
+    }
+
+
+    public static void ex12(String input) {
+        StringBuilder replaced = new StringBuilder();
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'a') {
+                replaced.append('o');
+            } else {
+                replaced.append(input.charAt(i));
+            }
+        }
+        System.out.println(replaced);
+    }
+
+
+    public static void ex13(String input) {
+        StringBuilder replaced = new StringBuilder();
+        int len = input.length();
+        for (int i = 0; i < input.length(); i++) {
+            replaced.append(input.charAt(len - i - 1));
+        }
+        System.out.println(replaced);
+    }
+
+        public static String ex14(String s1, String s2) {
+        if (s1.contains(s2)) {
+            return "Yes";
+        }
+        return "No";
+    }
+//    public static String ex14(String s1, String s2) {
+//        return s1.contains(s2) ? "Yes" : "No"    cначало на правда работает
+//    }
 
     public static void ex15() {
         Scanner scanner = new Scanner(System.in);
@@ -33,6 +139,7 @@ public class StringsPracticeQ3 {
         }
         System.out.println("Count: " + count);
     }
+
 
     public static void ex16() {
         Scanner scanner = new Scanner(System.in);
@@ -96,6 +203,27 @@ public class StringsPracticeQ3 {
         }
     }
 
+    public static void ex18(String input) {
+        StringBuilder replaced = new StringBuilder();
+        int count=0,i=0;
+        while(i<input.length()) {
+            if (input.charAt(i)=='a') {
+                if(count%2==1){
+                replaced.append("o");
+                }
+                else{
+                    replaced.append(input.charAt(i));
+                }
+                count++;
+            }
+            else {
+                replaced.append(input.charAt(i));
+            }
+           i++;
+        }
+        System.out.println(replaced);
+    }
+
     public static int ex21() {
         Scanner scanner1 = new Scanner(System.in);
         Scanner scanner2 = new Scanner(System.in);
@@ -133,41 +261,34 @@ public class StringsPracticeQ3 {
         System.out.println(replaced);
     }
 
-        public static void ex26() { //output everything between <--->
-            Scanner scanner = new Scanner(System.in);
-            ArrayList<String> answers = new ArrayList<>();
-            System.out.println("Type your word:");
-            String word = scanner.nextLine();
-            int first=0,last=0;
-            StringBuilder replaced = new StringBuilder();
-            while(word.indexOf('<') != -1){
-                first=word.indexOf("<");
-                last=word.indexOf("<");
+    public static void ex26() { //output everything between <--->
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> answers = new ArrayList<>();
+        System.out.println("Type your word:");
+        String word = scanner.nextLine();
+        int first = 0, last = 0;
+        StringBuilder replaced = new StringBuilder();
+        while (word.indexOf('<') != -1) {
+            first = word.indexOf("<");
+            last = word.indexOf("<");
 //                answers.add(word.substring(first+1, last));
-                System.out.print(word.substring(first+1, last)+" ");
-                word=word.substring(last+1);
-            }
+            System.out.print(word.substring(first + 1, last) + " ");
+            word = word.substring(last + 1);
         }
-
-
-
-
-        public static void ex26_2(){
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Type your sentence:");
-            String word = scanner.nextLine();
-            int first = 0, last = 0;
-            ArrayList<String> myList = new ArrayList<>();
-            while(word.indexOf('<')!= 1){
-                first=word.indexOf("<");
-                last = word.indexOf(">");
-                System.out.println(word.substring(first+1,last));
-                word = word.substring(last+1);
-            }
     }
 
 
-
+    public static void ex27() {
+        /*Scanner s1 = new Scanner(System.in);
+        Scanner s2 = new Scanner(System.in);
+        System.out.println("Print your sentence: ");
+        String word = s1.nextLine();
+        System.out.println("Print your 2 words to replace: ");
+        String second = s2.nextLine();
+        ArrayList<String> replaced = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            replaced.add(second);
+        }*/
     }
 
-
+}
