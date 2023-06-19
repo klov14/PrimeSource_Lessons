@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class StringsPracticeQ3 {
     public static void main(String[] args) {
-        ex26();
+        ex26_2();
 
     }
 
@@ -135,19 +135,39 @@ public class StringsPracticeQ3 {
 
         public static void ex26() { //output everything between <--->
             Scanner scanner = new Scanner(System.in);
+            ArrayList<String> answers = new ArrayList<>();
             System.out.println("Type your word:");
             String word = scanner.nextLine();
+            int first=0,last=0;
             StringBuilder replaced = new StringBuilder();
-            char[] gfg = word.toCharArray();
-            for (int c=0;c<word.length();c++) {
-                if (gfg[c] == '<') {
-                    replaced.append(c);
-                } else if(gfg[c] == '>') {
-                    break;
-                }
+            while(word.indexOf('<') != -1){
+                first=word.indexOf("<");
+                last=word.indexOf("<");
+//                answers.add(word.substring(first+1, last));
+                System.out.print(word.substring(first+1, last)+" ");
+                word=word.substring(last+1);
             }
-            System.out.println(replaced);
         }
+
+
+
+
+        public static void ex26_2(){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Type your sentence:");
+            String word = scanner.nextLine();
+            int first = 0, last = 0;
+            ArrayList<String> myList = new ArrayList<>();
+            while(word.indexOf('<')!= 1){
+                first=word.indexOf("<");
+                last = word.indexOf(">");
+                System.out.println(word.substring(first+1,last));
+                word = word.substring(last+1);
+            }
+    }
+
+
+
     }
 
 
