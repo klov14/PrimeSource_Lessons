@@ -12,7 +12,7 @@ public class Lesson19_This {
         private int age;
 
         public Human() {//конструктор
-            this.name="Deafult name";
+            this.name="Default name";
             this.age=0;
             System.out.println("Hello from 1 constructor");
         }
